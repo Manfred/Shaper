@@ -1,4 +1,6 @@
 class Shaper
+  autoload :HTML, 'shaper/html'
+  
   attr_accessor :object_name, :object, :template, :options, :proc
   
   def initialize(object_name, object, template, options, &proc)
