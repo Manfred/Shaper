@@ -1,23 +1,23 @@
 class Shaper
-  class HTML
+  module HTML
     UNWANTED = { '<' => '&lt;', '>' => '&gt;', '&' => '&amp;' }
     UNWANTED_RE = /#{UNWANTED.keys.map { |l| Regexp.escape(l) }.join('|')}/
     
-    def self.escape_content(content)
+    def escape_content(content)
       content.gsub(UNWANTED_RE) { |m| UNWANTED[m] }
     end
     
-    def self.escape_attribute(value)
+    def escape_attribute(value)
       content.gsub(/"/, '&quot;')
     end
     
-    def self.attributes(attributes)
+    def attributes(attributes)
       if c = attributes[:class]
         " class=\"#{c.respond_to?(:join) ? c.join(' ') : c.to_s}\""
       end
     end
     
-    def self.tag(name, *arguments)
+    def tag(name, *arguments)
       if arguments.last.kind_of?(Hash)
         options = arguments.pop
       else

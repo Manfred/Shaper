@@ -1,5 +1,7 @@
+require 'shaper/html'
+
 class Shaper
-  autoload :HTML, 'shaper/html'
+  include HTML
   
   attr_accessor :object_name, :object, :template, :options, :proc
   
